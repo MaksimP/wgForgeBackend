@@ -1,16 +1,16 @@
 package com.catsserver.dao;
 
+import com.catsserver.constant.Constant;
 import com.google.common.primitives.Ints;
 
 import java.sql.*;
 import java.util.*;
 
-public class CatsDAOImpl implements CatsDAO {
+public class GetCatsDAOImpl implements GetCatsDAO {
 
-    private final String URL = "jdbc:postgresql://localhost:5432/postgres";
-    //private final String URL = "jdbc:postgresql://192.168.99.100:5432/postgres";
-    private final String USER = "postgres";
-    private final String PASSWORD = "1234";
+    private final String URL = Constant.URL;
+    private final String USER = Constant.USER;
+    private final String PASSWORD = Constant.PASSWORD;
 
     public List<Map<String, String>> getAll(String... param) {
 
