@@ -50,7 +50,7 @@ public class CatsRESTService {
             String errorColor = "Неверно задан цвет";
             String errorName = "Кот с таким именем уже существует ";
             String entityMessage = null;
-            
+
             if (error.startsWith("duplicate", index + 1)) {
                 entityMessage = errorName;
             } else {

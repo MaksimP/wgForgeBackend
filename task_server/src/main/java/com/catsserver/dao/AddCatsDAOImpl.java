@@ -18,32 +18,14 @@ public class AddCatsDAOImpl implements AddCatsDAO{
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)){
             try (Statement statement = connection.createStatement()){
                 String sql = "insert into cats values ('" + cat.getName() + "', '" + cat.getColor()
                         + "', " + cat.getTail_length() + ", " + cat.getWhiskers_length() + ");";
-                System.out.println(sql);
-                //System.out.println(checkColor(statement, cat.getColor()));
                 statement.executeUpdate(sql);
             }
         } catch (SQLException e) {
             throw e;
         }
-
-    }
-
-    private String checkColor(Statement statement, String color) throws SQLException {
-        System.out.println("Test**");
-        String sql = "show columns from cat_color";
-        ResultSet resultSet = statement.executeQuery(sql);
-        System.out.println("Test");
-        resultSet.next();
-        System.out.println(resultSet.getString("Type"));
-        /*while (resultSet.next()) {
-            System.out.println(resultSet.getString(1));
-        }*/
-        System.out.println("Test2");
-        return "Test4";
     }
 }
