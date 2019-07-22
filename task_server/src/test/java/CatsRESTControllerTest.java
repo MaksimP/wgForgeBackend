@@ -1,4 +1,4 @@
-import com.catsserver.service.CatsRESTService;
+import com.catsserver.controller.CatsRESTController;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Test;
@@ -9,11 +9,11 @@ import javax.ws.rs.core.Response;
 
 import static org.junit.Assert.assertEquals;
 
-public class CatsRESTServiceTest extends JerseyTest {
+public class CatsRESTControllerTest extends JerseyTest {
 
     @Override
     public Application configure() {
-        return new ResourceConfig(CatsRESTService.class);
+        return new ResourceConfig(CatsRESTController.class);
     }
 
 

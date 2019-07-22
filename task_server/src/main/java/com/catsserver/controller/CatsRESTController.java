@@ -1,4 +1,4 @@
-package com.catsserver.service;
+package com.catsserver.controller;
 
 import com.catsserver.dao.AddCatsDAO;
 import com.catsserver.dao.AddCatsDAOImpl;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @Path("/")
-public class CatsRESTService {
+public class CatsRESTController {
 
     private GetCatsDAO getCatsDAO = new GetCatsDAOImpl();
     private AddCatsDAO addCatsDAO = new AddCatsDAOImpl();
@@ -46,18 +46,23 @@ public class CatsRESTService {
             addCatsDAO.addCats(cat);
         } catch (SQLException e) {
             String error = e.getLocalizedMessage();
-            int index = error.indexOf(" ");
-            String errorColor = "Неверно задан цвет";
-            String errorName = "Кот с таким именем уже существует ";
-            String entityMessage = null;
-
-            if (error.startsWith("duplicate", index + 1)) {
-                entityMessage = errorName;
-            } else {
-                entityMessage = errorColor;
-            }
-            return Response.status(Response.Status.BAD_REQUEST).entity(entityMessage).build();
+            return Response.status(Response.Status.BAD_REQUEST).entity(createEntityMessage(error))
+                    .build();
         }
         return Response.status(Response.Status.OK).build();
+    }
+
+    private String createEntityMessage(String error) {
+        int index = error.indexOf(" ");
+        String errorColor = "Неверно задан цвет";
+        String errorName = "Кот с таким именем уже существует ";
+        String entityMessage = null;
+
+        if (error.startsWith("duplicate", index + 1)) {
+            entityMessage = errorName;
+        } else {
+            entityMessage = errorColor;
+        }
+        return entityMessage;
     }
 }

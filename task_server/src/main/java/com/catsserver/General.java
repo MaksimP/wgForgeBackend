@@ -1,6 +1,6 @@
 package com.catsserver;
 
-import com.catsserver.service.CatsRESTService;
+import com.catsserver.controller.CatsRESTController;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -21,8 +21,11 @@ public class General {
 
         Context context = tomcat.addContext("", new File(".").getAbsolutePath());
 
+        //context.setStartStopThreads(200);
+        System.out.println(context.getStartStopThreads());
+
         tomcat.addServlet(context, "jersey-container-servlet",
-                new ServletContainer(new ResourceConfig(CatsRESTService.class)));
+                new ServletContainer(new ResourceConfig(CatsRESTController.class)));
         context.addServletMappingDecoded("/*", "jersey-container-servlet");
 
         tomcat.start();
