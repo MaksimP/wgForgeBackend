@@ -11,6 +11,18 @@ import java.io.File;
 public class General {
 
     public static void main(String[] args) throws Exception {
+        int countThreads = 1;
+        if (args.length != 0) {
+            for (int i = 0; i < args.length - 1; i++) {
+                if (args[i].equals("-t")) {
+                    try {
+                        countThreads = Integer.valueOf(args[i + 1]);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Не числовое значение: " + args[i + 1]);
+                    }
+                }
+            }
+        }
         String webPort = System.getenv("PORT");
         if (webPort == null || webPort.isEmpty()) {
             webPort = "8080";
@@ -21,8 +33,7 @@ public class General {
 
         Context context = tomcat.addContext("", new File(".").getAbsolutePath());
 
-        //context.setStartStopThreads(200);
-        System.out.println(context.getStartStopThreads());
+        context.setStartStopThreads(countThreads);
 
         tomcat.addServlet(context, "jersey-container-servlet",
                 new ServletContainer(new ResourceConfig(CatsRESTController.class)));
