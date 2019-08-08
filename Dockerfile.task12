@@ -1,0 +1,6 @@
+FROM java:8-jdk-alpine
+VOLUME /home/task
+WORKDIR /home/task
+COPY ./task_1_2/target/task_1_2-1.0-SNAPSHOT.jar /home/task/task.jar
+EXPOSE 8080
+CMD ["java", "-jar", "task.jar"]

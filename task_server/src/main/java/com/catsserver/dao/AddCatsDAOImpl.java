@@ -13,11 +13,11 @@ public class AddCatsDAOImpl implements AddCatsDAO{
 
     @Override
     public void addCats(Cat cat) throws SQLException {
-        try {
+       /* try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)){
             try (Statement statement = connection.createStatement()){
                 String sql = "insert into cats values ('" + cat.getName() + "', '" + cat.getColor()

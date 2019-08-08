@@ -16,11 +16,11 @@ public class GetCatsDAOImpl implements GetCatsDAO {
 
         List<Map<String, String>> allCats = new ArrayList<>();
 
-        try {
+        /*try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)){
             try (Statement statement = connection.createStatement()){
                 String attribute = checkAttribute(param[0], statement) ? " order by " + param[0] + " " : "";
