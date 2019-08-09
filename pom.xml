@@ -7,7 +7,7 @@
     <groupId>com.wg_forge_backend</groupId>
     <artifactId>wg_forge_backend</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <modules>
         <module>task_1_2</module>
         <module>task_server</module>

@@ -41,6 +41,7 @@ public class General {
         context.addServletMappingDecoded("/*", "jersey-container-servlet");
 
         tomcat.start();
+        System.out.println("Server started...");
         tomcat.getServer().await();
     }
 }
