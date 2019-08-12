@@ -9,7 +9,7 @@ mvn clean package
  ```
  yzh44yzh/wg_forge_backend_env:1.1
  ```  
-для выполнения 1 и 2 задания, перейти в каталог:  ```task_1_2/target``` и выполнить  
+для выполнения 1 и 2 задания, перейти в каталог:  ```task_1_2/target``` и выполнить:  
 ```
 java -jar task_1_2-1.0.jar
 ```  
@@ -22,7 +22,8 @@ java -jar task_server-1.0.one-jar.jar
 ```
 java -jar task_server-1.0.one-jar.jar -t 5
 ```
-Настройки соединения с базой данных заданны в файлах ```config.properties``` в каждом проекте.
+Настройки соединения с базой данных заданные в файлах ```config.properties``` в каждом проекте.  
+
 Или можно скачать образ для первых двух заданий:  
 ```
 docker pull mjv11/wgforgebackend_task12
