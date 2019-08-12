@@ -3,14 +3,17 @@ package com.catsserver.dao;
 import com.catsserver.constant.Constant;
 import com.google.common.primitives.Ints;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.*;
 
 public class GetCatsDAOImpl implements GetCatsDAO {
 
-    private final String URL = Constant.URL;
-    private final String USER = Constant.USER;
-    private final String PASSWORD = Constant.PASSWORD;
+    private final String URL = Constant.getUrl();
+    private final String USER = Constant.getUser();
+    private final String PASSWORD = Constant.getPassword();
 
     public List<Map<String, String>> getAll(String... param) {
 

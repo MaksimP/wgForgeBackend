@@ -21,7 +21,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>com.catsserver.General</mainClass>
+                  <mainClass>com.catsserver.com.task12.General</mainClass>
                 </transformer>
               </transformers>
             </configuration>

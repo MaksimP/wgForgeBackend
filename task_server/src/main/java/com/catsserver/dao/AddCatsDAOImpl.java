@@ -7,9 +7,9 @@ import java.sql.*;
 
 public class AddCatsDAOImpl implements AddCatsDAO{
 
-    private final String URL = Constant.URL;
-    private final String USER = Constant.USER;
-    private final String PASSWORD = Constant.PASSWORD;
+    private final String URL = Constant.getUrl();
+    private final String USER = Constant.getUser();
+    private final String PASSWORD = Constant.getPassword();
 
     @Override
     public void addCats(Cat cat) throws SQLException {

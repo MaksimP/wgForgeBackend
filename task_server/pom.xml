@@ -100,7 +100,7 @@
                 <executions>
                     <execution>
                         <configuration>
-                            <mainClass>com.catsserver.General</mainClass>
+                            <mainClass>com.catsserver.com.task12.General</mainClass>
                             <attachToBuild>true</attachToBuild>
                             <!--<filename>
                                 ${project.build.finalName}.${project.packaging}
